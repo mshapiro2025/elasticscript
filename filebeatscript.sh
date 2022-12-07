@@ -8,10 +8,8 @@ sudo filebeat modules enable elasticsearch
 sudo filebeat modules enable kibana
 cd /etc/filebeat
 
-echo What is the IP of the Elasticsearch server?
-read ipaddress
-echo What is the IP of the Kibana server?
-read ipaddress1
+read -p "What is the IP of the Elasticsearch server? " ipaddress
+read -p "What is the IP of the Kibana server? " ipaddress1
 
 sed -i 's/enabled: false/enabled: true/I' filebeat.yml
 sed -i 's/enabled: false/enabled: true/I' filebeat.yml
