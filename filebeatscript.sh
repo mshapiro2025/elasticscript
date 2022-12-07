@@ -22,7 +22,7 @@ sed -i 's/#\(username:*\)/\1/I' filebeat.yml
 sed -i 's/username: "elastic"/username: "filebeatuser"/I' filebeat.yml
 sed -i 's/#\(password:*\)/\1/I' filebeat.yml 
 sed -i 's/password: "changeme"/password: "password"/I' filebeat.yml
-sed -i '187i\  ssl.veritifaction_mode: none' filebeat.yml
+sed -i '187i\  ssl.verification_mode: none' filebeat.yml
 
 sudo service filebeat enable
 sudo service filebeat start
