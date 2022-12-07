@@ -22,7 +22,7 @@ sed -i "s/#network.host: 192.168.0.1/network.host: $ipaddress/I" elasticsearch.y
 
 cd ~
 /usr/share/elasticsearch/bin/elasticsearch-users useradd admin -p password
-/user/share/elasticsearch/bin/elasticsearch-users roles admin -a superuser
+/usr/share/elasticsearch/bin/elasticsearch-users roles admin -a superuser
 
 /usr/share/elasticsearch/bin/elasticsearch-users useradd kibanauser -p Ch@mpl@1n22
 /usr/share/elasticsearch/bin/elasticsearch-users roles kibanauser -a superuser
