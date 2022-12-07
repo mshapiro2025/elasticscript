@@ -1,7 +1,7 @@
 #!/bin/bash
 
 read -p "What is your node name? " node
-read -p "What is your Elastic server IP address? " ip
+read -p "What is your Elastic server IP address? " ipaddress
 
 apt-get update
 
@@ -18,7 +18,7 @@ sudo systemctl start elasticsearch
 
 cd /etc/elasticsearch
 sed -i "s/#node.name: node-1/node.name: $node/I" elasticsearch.yml
-sed -i "s/#network.host: 192.168.0.1/network.host: $ip/I" elasticsearch.yml
+sed -i "s/#network.host: 192.168.0.1/network.host: $ipaddress/I" elasticsearch.yml
 
 cd ~
 /usr/share/elasticsearch/bin/elasticsearch-users useradd admin -p password
