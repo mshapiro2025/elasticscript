@@ -1,7 +1,7 @@
 #!/bin/bash
 
-read -p "Enter the Elastic server IP" ipaddress
-read -p "Enter the Kibana server IP" ipaddress1
+read -p "Enter the Elastic server IP: " ipaddress
+read -p "Enter the Kibana server IP: " ipaddress1
 
 wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo gpgp --dearmor -o /usr/share/keyrings/elasticsearch-keyring.gpg
 sudo apt-get install apt-transport-https
