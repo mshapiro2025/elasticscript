@@ -1,7 +1,7 @@
 #!/bin/bash
 
-read -p "What is your node name?" node
-echo "What is your Elastic server IP address?" ip
+read -p "What is your node name? " node
+read -p "What is your Elastic server IP address? " ip
 
 apt-get update
 
