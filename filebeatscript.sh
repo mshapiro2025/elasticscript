@@ -11,7 +11,7 @@ cd /etc/filebeat
 echo What is the IP of the Elasticsearch server?
 read ipaddress
 echo What is the IP of the Kibana server?
-red ipaddress1
+read ipaddress1
 
 sed -i 's/enabled: false/enabled: true/I' filebeat.yml
 sed -i 's/enabled: false/enabled: true/I' filebeat.yml
