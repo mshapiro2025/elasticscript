@@ -1,5 +1,7 @@
 # Elastic Stack Script
 
+## Created for SYS255 Final Project - Molly Shapiro and Natalie Eckles
+
 This is a set of four scripts for setting up a basic Elastic stack.
 
 The stack contains Elasticsearch, Kibana, Winlogbeat with Sysmon, and Filebeat with Syslog. 
