@@ -14,10 +14,10 @@ read -p "What is the IP of the Kibana server? " ipaddress1
 sed -i 's/enabled: false/enabled: true/I' filebeat.yml
 sed -i 's/enabled: false/enabled: true/I' filebeat.yml
 sed -i 's/#\(hosts: "localhost:9200"\)/\1/I' filebeat.yml
-sed -i "s/hosts: \[\"localhost:9200\"\]/hosts: \[\"https:\/\/${ipaddress}:9200\'\]/I" filebeat.yml
+sed -i "s/hosts: \[\"localhost:9200\"\]/hosts: \[\"https:\/\/${ipaddress}:9200\"\]/I" filebeat.yml
 sed -i 's/#\(protocol: "https"\)/\1/I' filebeat.yml
 sed -i 's/#\(host: "localhost:5601"\)/\1/I' filebeat.yml
-sed -i "s|host: \"localhost:5601\"|host: \"${ipaddress1}:5601\"|I" filebeat.yml
+sed -i "s|host: \"localhost:5601\"|host: \"http:\/\/${ipaddress1}:5601\"|I" filebeat.yml
 sed -i 's/#\(username:*\)/\1/I' filebeat.yml 
 sed -i 's/username: "elastic"/username: "filebeatuser"/I' filebeat.yml
 sed -i 's/#\(password:*\)/\1/I' filebeat.yml 
