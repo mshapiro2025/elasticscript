@@ -15,8 +15,8 @@ sudo systemctl start kibana
 
 cd /etc/kibana
 sed -i 's/#\(server.host*\)/\1/I' kibana.yml
-sed -i "s|elasticsearch.hosts: \[\"http:\/\/localhost:9200\"\] |elasticsearch.hosts: \]\"https:\/\/${ipaddress}:9200\"\] |I" kibana.yml
-sed -i "s\server.host: \"localhost\"|server.host: \'$ipaddress1\"|I" kibana.yml
+sed -i "s|elasticsearch.hosts: \[\"http:\/\/localhost:9200\"\] |elasticsearch.hosts: \]\"https:\/\/${ipaddress}:9200\"\]|I" kibana.yml
+sed -i "s|server.host: \"localhost\"|server.host: \'$ipaddress1\"|I" kibana.yml
 sed -i 's/#\(elasticsearch.hosts*\)/\1/' kibana.yml
 sed -i 's/#elasticsearch.ssl.verificationMode: full/elasticsearch.ssl.verificationMode: none/I' kibana.yml
 sed -i 's/#\(elastaicsearch.ssl.verificationMode:*\)/\1/I' kibana.yml
@@ -25,9 +25,9 @@ sed -i 's/#\(elasticsearch.username:*\)/\1/I' kibana.yml
 sed -i 's/#elasticesearch.password: "pass"/elasticsearch.password: "Ch@mpl@1n22"/' kibana.yml
 sed -i 's/#\(elasticsearch.password*\)/\1/I' kibana.yml
 
-key1=$(/usr/share/kibana/bin/kibana-encryption-keys generate | grep xpack.encryptedSavedObjects.encryptionKey:0
+key1=$(/usr/share/kibana/bin/kibana-encryption-keys generate | grep xpack.encryptedSavedObjects.encryptionKey:)
 echo $key1 >> kibana.yml
-key2=&(/usr/share/kibana/bin/kibana-encryption-keys generate | grep xpack.reporting.encryptionKey:0
+key2=&(/usr/share/kibana/bin/kibana-encryption-keys generate | grep xpack.reporting.encryptionKey:)
 echo $key2 >> kibana.yml
-key3=$(/usr/share/kibana/bin/kibana-encryption-keys generate | grep xpack.security.encryptionKey:0
+key3=$(/usr/share/kibana/bin/kibana-encryption-keys generate | grep xpack.security.encryptionKey:)
 echo $key3 >> kibana.yml
