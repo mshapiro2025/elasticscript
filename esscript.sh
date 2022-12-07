@@ -1,9 +1,7 @@
 #!/bin/bash
 
-echo "What is your node name?"
-read $1
-echo "What is your Elastic server IP address?"
-read $2
+read -p "What is your node name?" node
+echo "What is your Elastic server IP address?" ip
 
 apt-get update
 
@@ -19,8 +17,8 @@ sudo systemctl enable elasticsearch
 sudo systemctl start elasticsearch
 
 cd /etc/elasticsearch
-sed -i "s/#node.name: node-1/node.name $1/I" elasticsearch.yml
-sed -i "s/#network.host: 192.168.0.1/network.host $2/I" elasticsearch.yml
+sed -i "s/#node.name: node-1/node.name: $node/I" elasticsearch.yml
+sed -i "s/#network.host: 192.168.0.1/network.host: $ip/I" elasticsearch.yml
 
 cd ~
 /usr/share/elasticsearch/bin/elasticsearch-users useradd admin -p password
