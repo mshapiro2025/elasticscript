@@ -2,17 +2,19 @@
 
 ## Created for SYS255 Final Project - Molly Shapiro and Natalie Eckles
 
+### Description
+
 This is a set of four scripts for setting up a basic Elastic stack.
 
 The stack contains Elasticsearch, Kibana, Winlogbeat with Sysmon, and Filebeat with Syslog. 
 
 Elasticsearch can be set up and configured on the same server or different servers.
 
-
 The Elasticsearch, Kibana, and Filebeat scripts are bash scripts.
 
 The Winlogbeat script is a Powershell script.
 
+### Details and Requirements
 
 All scripts take user input for IP addresses, usernames and passwords. 
 
