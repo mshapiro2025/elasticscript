@@ -27,7 +27,7 @@ sed -i 's/#\(elasticsearch.password*\)/\1/I' kibana.yml
 
 key1=$(/usr/share/kibana/bin/kibana-encryption-keys generate | grep xpack.encryptedSavedObjects.encryptionKey:)
 echo $key1 >> kibana.yml
-key2=&(/usr/share/kibana/bin/kibana-encryption-keys generate | grep xpack.reporting.encryptionKey:)
+key2=$(/usr/share/kibana/bin/kibana-encryption-keys generate | grep xpack.reporting.encryptionKey:)
 echo $key2 >> kibana.yml
 key3=$(/usr/share/kibana/bin/kibana-encryption-keys generate | grep xpack.security.encryptionKey:)
 echo $key3 >> kibana.yml
