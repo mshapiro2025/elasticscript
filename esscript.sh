@@ -30,5 +30,7 @@ cd ~
 /usr/share/elasticsearch/bin/elasticsearch-users roles kibanauser -a superuser
 /usr/share/elasticsearch/bin/elasticsearch-users roles kibanauser -a kibana_system
 
+systemctl restart elasticsearch
+
 echo "Your username is admin and your password is password. Please change these ASAP!"
 echo "Your Kibana system username is kibanauser and your password is Ch@mpl@1n22."
