@@ -15,7 +15,7 @@ sudo systemctl start kibana
 
 cd /etc/kibana
 sed -i 's/#\(server.host*\)/\1/I' kibana.yml
-sed -i "s|elasticsearch.hosts: \[\"http:\/\/localhost:9200\"\] |elasticsearch.hosts: \]\"https:\/\/${ipaddress}:9200\"\]|I" kibana.yml
+sed -i "s|elasticsearch.hosts: \[\"http:\/\/localhost:9200\"\]|elasticsearch.hosts: \]\"https:\/\/${ipaddress}:9200\"\]|I" kibana.yml
 sed -i "s|server.host: \"localhost\"|server.host: \"$ipaddress1\"|I" kibana.yml
 sed -i 's/#\(elasticsearch.hosts*\)/\1/' kibana.yml
 sed -i 's/#elasticsearch.ssl.verificationMode: full/elasticsearch.ssl.verificationMode: none/I' kibana.yml
