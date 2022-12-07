@@ -13,7 +13,7 @@ read ipaddress
 echo What is the IP of the Kibana server?
 red ipaddress1
 
-sed -i ;s/enabled: false/enabled: true/I' filebeat.yml
+sed -i 's/enabled: false/enabled: true/I' filebeat.yml
 sed -i 's/enabled: false/enabled: true/I' filebeat.yml
 sed -i "s/hosts: \[\"localhost:9200\"\]/hosts: \[\"https:\/\/${ipaddress}:9200\'\]/I" filebeat.yml
 sed -i 's/#\(protocol: "https"\)/\1/I' filebeat.yml
