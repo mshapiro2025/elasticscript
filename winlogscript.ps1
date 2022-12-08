@@ -10,7 +10,7 @@ $kibanahost = 'http://' + $kibanaip + ':5601'
 
 Invoke-WebRequest -UseBasicParsing https://artifacts.elastic.co/downloads/beats/winlogbeat/winlogbeat-8.5.2-iwndows-x86_64.zip -OutFile "winlogbeat-8.5.2-windows-x86_64.zip"
 Start-Sleep -s 300
-Expand-Archive winlogbeat-8.5.2-windows-x86_64.zip "C:/Program files"
+Expand-Archive winlogbeat-8.5.2-windows-x86_64.zip "C:/Program Files"
 cd "C:/Program Files"
 Rename-Item winlogbeat-8.5.2-windows-x86_64.zip "C:/Program Files"
 cd Winlogbeat
