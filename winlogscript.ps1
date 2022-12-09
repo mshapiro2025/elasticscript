@@ -12,7 +12,7 @@ Invoke-WebRequest -UseBasicParsing https://artifacts.elastic.co/downloads/beats/
 Start-Sleep -s 300
 Expand-Archive winlogbeat-8.5.2-windows-x86_64.zip "C:/Program Files"
 cd "C:/Program Files"
-Rename-Item winlogbeat-8.5.2-windows-x86_64 "C:/Program Files"
+Rename-Item winlogbeat-8.5.2-windows-x86_64 Winlogbeat
 cd Winlogbeat
 Powershell.exe -ExecutionPolicy Unrestricted -File ./install-service-winlogbeat.ps1
 Start-Sleep -s 60
