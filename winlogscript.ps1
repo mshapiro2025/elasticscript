@@ -9,7 +9,7 @@ $elastichost = 'https://' + $elasticip + ':9200'
 $kibanahost = 'http://' + $kibanaip + ':5601'
 
 Invoke-WebRequest -UseBasicParsing https://artifacts.elastic.co/downloads/beats/winlogbeat/winlogbeat-8.5.2-windows-x86_64.zip -OutFile "winlogbeat-8.5.2-windows-x86_64.zip"
-Start-Sleep -s 300
+Start-Sleep -s 60
 Expand-Archive winlogbeat-8.5.2-windows-x86_64.zip "C:/Program Files"
 cd "C:/Program Files"
 Rename-Item winlogbeat-8.5.2-windows-x86_64 Winlogbeat
@@ -35,13 +35,13 @@ Remove-Item winlogbeat.yml
 Rename-Item winlogbeat1.yml winlogbeat.yml
 
 Invoke-WebRequest -UseBasicParsing https://download.sysinternals.com/files/Sysmon.zip -OutFile "Sysmon.zip"
-Start-Sleep -s 300
+Start-Sleep -s 60
 Expand-Archive Sysmon.zip "C:/Program Files"
 cd "C:/Program Files"
 ./sysmon --accepteula
-Start-Sleep -s 60
+Start-Sleep -s 30
 
 cd "C:/Program Files/Winlogbeat"
-winlogbeat setup -e
-
+.\winlogbeat.exe setup -e
+Start-Service winlogbeat
 
