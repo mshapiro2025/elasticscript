@@ -14,9 +14,11 @@ Expand-Archive winlogbeat-8.5.2-windows-x86_64.zip "C:/Program Files"
 cd "C:/Program Files"
 Rename-Item winlogbeat-8.5.2-windows-x86_64 Winlogbeat
 cd Winlogbeat
+echo "Installing Winlogbeat now"
 Powershell.exe -ExecutionPolicy Unrestricted -File ./install-service-winlogbeat.ps1
 Start-Sleep -s 60
 
+echo "Changing config file now"
 # Replace the default Kibana IP address with the user-inputted IP
 (Get-Content winlogbeat.yml) -replace "#host: `"localhost:5601`"", "host:`"$kibanahost`"" | Add-Content winlogbeat1.yml
 Remove-Item winlogbeat.yml
@@ -34,13 +36,16 @@ Rename-Item winlogbeat1.yml winlogbeat.yml
 Remove-Item winlogbeat.yml
 Rename-Item winlogbeat1.yml winlogbeat.yml
 
+echo "Downloading Sysmon now"
 Invoke-WebRequest -UseBasicParsing https://download.sysinternals.com/files/Sysmon.zip -OutFile "Sysmon.zip"
 Start-Sleep -s 60
 Expand-Archive Sysmon.zip "C:/Program Files"
 cd "C:/Program Files"
+echo" Installing Sysmon now"
 ./sysmon --accepteula
 Start-Sleep -s 30
 
+echo "Starting Winlogbeat now"
 cd "C:/Program Files/Winlogbeat"
 .\winlogbeat.exe setup -e
 Start-Service winlogbeat
