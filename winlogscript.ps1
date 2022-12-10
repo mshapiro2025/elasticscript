@@ -20,7 +20,7 @@ Start-Sleep -s 60
 
 echo "Changing config file now"
 # Replace the default Kibana IP address with the user-inputted IP
-(Get-Content winlogbeat.yml) -replace "#host: `"localhost:5601`"", "host:`"$kibanahost`"" | Add-Content winlogbeat1.yml
+(Get-Content winlogbeat.yml) -replace "#host: `"localhost:5601`"", "host: `"$kibanahost`"" | Add-Content winlogbeat1.yml
 Remove-Item winlogbeat.yml
 Rename-Item winlogbeat1.yml winlogbeat.yml
 # Replace the default Elastic username with the user-inputted name
