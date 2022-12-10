@@ -35,7 +35,7 @@ Rename-Item winlogbeat1.yml winlogbeat.yml
 (Get-Content winlogbeat.yml) -replace "hosts: \[`"localhost:9200`"\]", "hosts: [`"$elastichost`"]" | Add-Content winlogbeat1.yml
 Remove-Item winlogbeat.yml
 Rename-Item winlogbeat1.yml winlogbeat.yml
-(Get-Content winlogbeat.yml) -replace "#api_key: `"id:api_key`"", "ssl.verification_Mode: none" | Add-Content winlogbeat1.yml
+(Get-Content winlogbeat.yml) -replace "#api_key: `"id:api_key`"", "ssl.verification_mode: none" | Add-Content winlogbeat1.yml
 Remove-Item winlogbeat.yml
 Rename-Item winlogbeat1.yml winlogbeat.yml
 
