@@ -41,7 +41,7 @@ Invoke-WebRequest -UseBasicParsing https://download.sysinternals.com/files/Sysmo
 Start-Sleep -s 60
 Expand-Archive Sysmon.zip "C:/Program Files"
 cd "C:/Program Files"
-echo" Installing Sysmon now"
+echo "Installing Sysmon now"
 ./sysmon --accepteula
 Start-Sleep -s 30
 
