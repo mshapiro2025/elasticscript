@@ -26,9 +26,9 @@ The winlogbeatuser role requires manage_ilm and monitor roles on the cluster and
 
 The filebeatuser role requires manage_ilm and monitor roles on the cluster and the manage role on the filebeat-* indices.
 
-The winloguser user requires the winlogbeatuser role, the kibana_admin role, and the ingest_admin role.
+The winloguser user requires the winlogbeatuser role, the kibana_admin role, the superuser role, and the ingest_admin role.
 
-The filebeatuser role requires the filebeatuser role, the kibana_admin role, and the ingest_admin role.
+The filebeatuser role requires the filebeatuser role, the kibana_admin role, the superuser role, and the ingest_admin role.
 
 These users MUST be created before running the Winlogbeat and Filebeat scripts, since neither of these services can be started properly without access to Elastic.
 
