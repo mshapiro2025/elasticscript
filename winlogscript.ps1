@@ -45,7 +45,7 @@ Start-Sleep -s 60
 Expand-Archive Sysmon.zip "C:/Program Files"
 cd "C:/Program Files"
 echo "Installing Sysmon now"
-./sysmon --accepteula
+./sysmon -i --accepteula
 Start-Sleep -s 30
 
 echo "Starting Winlogbeat now"
