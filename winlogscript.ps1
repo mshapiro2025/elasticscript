@@ -38,6 +38,9 @@ Rename-Item winlogbeat1.yml winlogbeat.yml
 (Get-Content winlogbeat.yml) -replace "#api_key: `"id:api_key`"", "ssl.verification_mode: none" | Add-Content winlogbeat1.yml
 Remove-Item winlogbeat.yml
 Rename-Item winlogbeat1.yml winlogbeat.yml
+(Get-Content winlogbeat.yml) -replace "#space_id: ", "ssl.verification_mode: none" | Add-Content winlogbeat1.yml
+Remove-Item winlogbeat.yml
+Rename-Item winlogbeat1.yml winlogbeat.yml
 
 echo "Downloading Sysmon now"
 Invoke-WebRequest -UseBasicParsing https://download.sysinternals.com/files/Sysmon.zip -OutFile "Sysmon.zip"
