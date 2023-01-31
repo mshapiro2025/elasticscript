@@ -4,6 +4,8 @@
 read -p "Enter the Elastic server IP: " ipaddress
 read -p "Enter the Kibana server IP: " ipaddress1
 
+apt-get update
+
 # This gets the GPG key again. Although it was obtained in the Elastic script, it is here again in case of they're run on seperate servers
 wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo gpg --dearmor -o /usr/share/keyrings/elasticsearch-keyring.gpg
 sudo apt-get install apt-transport-https
