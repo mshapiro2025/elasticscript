@@ -1,3 +1,6 @@
+# Developed for SYS265 based off of Elastic documentation and help from Paul Gleason
+# Will use docker-compose to set up Elasticsearch
+
 version: "2.2"
 
 services:
