@@ -70,7 +70,7 @@ services:
       - xpack.security.transport.ssl.certificate_authorities=certs/ca/ca.crt
       - xpack.security.transport.ssl.verification_mode=certificate
       - xpack.license.self_generated.type=basic
-    mem_limit: 750000000
+    mem_limit: ${MEM_LIMIT}
     ulimits:
       memlock:
         soft: -1
