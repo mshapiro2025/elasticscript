@@ -43,7 +43,6 @@ services:
       interval: 1s
       timeout: 5s
       retries: 120
-
   es01:
     depends_on:
       setup:
@@ -85,7 +84,6 @@ services:
       interval: 10s
       timeout: 10s
       retries: 120
-
 volumes:
   certs:
     driver: local
