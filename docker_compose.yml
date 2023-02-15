@@ -11,6 +11,7 @@ services:
         if [ x${ELASTIC_PASSWORD} == x ]; then
           echo "Set the ELASTIC_PASSWORD environment variable in the .env file";
           exit 1;
+        fi;
         if [ ! -f config/certs/ca.zip ]; then
           echo "Creating CA";
           bin/elasticsearch-certutil ca --silent --pem -out config/certs/ca.zip;
@@ -55,7 +56,7 @@ services:
       - ${ES_PORT}:9200
     environment:
       - node.name=es01
-      - cluster.name=docker-cluster
+      - cluster.name=${CLUSTER_NAME}
       - cluster.initial_master_nodes=es01
       - ELASTIC_PASSWORD=${ELASTIC_PASSWORD}
       - bootstrap.memory_lock=true
@@ -69,7 +70,7 @@ services:
       - xpack.security.transport.ssl.certificate=certs/es01/es01.crt
       - xpack.security.transport.ssl.certificate_authorities=certs/ca/ca.crt
       - xpack.security.transport.ssl.verification_mode=certificate
-      - xpack.license.self_generated.type=basic
+      - xpack.license.self_generated.type=${LICENSE}
     mem_limit: ${MEM_LIMIT}
     ulimits:
       memlock:
