@@ -2,6 +2,10 @@
 
 read -p "What is your node name? " node
 read -p "What is your Elastic server IP address? " ipaddress
+read -p "What do you want your Elastic superuser username to be? " esuser
+read -p "What do you want your Elastic superuser password to be? " espass
+read -p "What do you want your Kibana username to be? " kbuser
+read -p "What do you want your Kibana password to be? " kbpass
 
 apt-get update
 
@@ -21,14 +25,14 @@ sed -i "s/#node.name: node-1/node.name: $node/I" elasticsearch.yml
 sed -i "s/#network.host: 192.168.0.1/network.host: $ipaddress/I" elasticsearch.yml
 
 cd ~
-/usr/share/elasticsearch/bin/elasticsearch-users useradd admin -p password
+/usr/share/elasticsearch/bin/elasticsearch-users useradd $esuser -p $espass
 /usr/share/elasticsearch/bin/elasticsearch-users roles admin -a superuser
 
-/usr/share/elasticsearch/bin/elasticsearch-users useradd kibanauser -p Ch@mpl@1n22
+/usr/share/elasticsearch/bin/elasticsearch-users useradd $kbuser -p $kbpass
 /usr/share/elasticsearch/bin/elasticsearch-users roles kibanauser -a superuser
 /usr/share/elasticsearch/bin/elasticsearch-users roles kibanauser -a kibana_system
 
 systemctl restart elasticsearch
 
-echo "Your username is admin and your password is password. Please change these ASAP!"
-echo "Your Kibana system username is kibanauser and your password is Ch@mpl@1n22."
+echo "Your username is $esadmin and your password is $espass. Please change these ASAP!"
+echo "Your Kibana system username is $kbuser and your password is $kbpass."
