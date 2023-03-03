@@ -8,6 +8,7 @@ $elasticpass = Read-Host -Prompt "Enter your Elastic Winlogbeat password"
 $elastichost = 'https://' + $elasticip + ':9200'
 $kibanahost = 'http://' + $kibanaip + ':5601'
 
+# Downloading and installing Winlogbeat
 Invoke-WebRequest -UseBasicParsing https://artifacts.elastic.co/downloads/beats/winlogbeat/winlogbeat-8.5.2-windows-x86_64.zip -OutFile "winlogbeat-8.5.2-windows-x86_64.zip"
 Start-Sleep -s 60
 Expand-Archive winlogbeat-8.5.2-windows-x86_64.zip "C:/Program Files"
@@ -18,6 +19,7 @@ echo "Installing Winlogbeat now"
 Powershell.exe -ExecutionPolicy Unrestricted -File ./install-service-winlogbeat.ps1
 Start-Sleep -s 60
 
+# Changing winlogbeat.yml configuration file with user-inputted IPs and necessary settings
 echo "Changing config file now"
 # Replace the default Kibana IP address with the user-inputted IP
 (Get-Content winlogbeat.yml) -replace "#host: `"localhost:5601`"", "host: `"$kibanahost`"" | Add-Content winlogbeat1.yml
@@ -42,15 +44,18 @@ Rename-Item winlogbeat1.yml winlogbeat.yml
 Remove-Item winlogbeat.yml
 Rename-Item winlogbeat1.yml winlogbeat.yml
 
+# Downloading, installing, and starting Sysmon with the SwiftOnSecurity configuration
 echo "Downloading Sysmon now"
 Invoke-WebRequest -UseBasicParsing https://download.sysinternals.com/files/Sysmon.zip -OutFile "Sysmon.zip"
 Start-Sleep -s 60
 Expand-Archive Sysmon.zip "C:/Program Files"
 cd "C:/Program Files"
+Invoke-WebRequest https://github.com/SwiftOnSecurity/sysmon-config/sysmonconfig-export.xml -OutFile sysmonconfig.xml
 echo "Installing Sysmon now"
-./sysmon -i --accepteula
+cmd.exe /c sysmon.exe --accepteula -i sysmonconfig.xml
 Start-Sleep -s 30
 
+# Starting Winlogbeat
 echo "Starting Winlogbeat now"
 cd "C:/Program Files/Winlogbeat"
 .\winlogbeat.exe setup -e
