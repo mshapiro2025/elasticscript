@@ -3,6 +3,8 @@
 # This gathers user input for both the Kibana and Elastic IPs, in case they're run on seperate servers
 read -p "Enter the Elastic server IP: " ipaddress
 read -p "Enter the Kibana server IP: " ipaddress1
+read -p "Enter the Kibana username you created earlier: " username
+read -p "Enter the Kibana password you created earlier: " password
 
 apt-get update
 
@@ -27,9 +29,9 @@ sed -i "s|server.host: \"localhost\"|server.host: \"$ipaddress1\"|I" kibana.yml
 sed -i 's/#\(elasticsearch.hosts*\)/\1/' kibana.yml
 sed -i 's/#elasticsearch.ssl.verificationMode: full/elasticsearch.ssl.verificationMode: none/I' kibana.yml
 sed -i 's/#\(elasticsearch.ssl.verificationMode:*\)/\1/I' kibana.yml
-sed -i 's/#elasticsearch.username: "kibana.system"/elasticsearch.username: "kibanauser"/' kibana.yml
+sed -i 's/#elasticsearch.username: "kibana.system"/elasticsearch.username: \"$username\"/' kibana.yml
 sed -i 's/#\(elasticsearch.username:*\)/\1/I' kibana.yml
-sed -i 's/#elasticsearch.password: "pass"/elasticsearch.password: "Ch@mpl@1n22"/' kibana.yml
+sed -i 's/#elasticsearch.password: "pass"/elasticsearch.password: \"$password\"/' kibana.yml
 sed -i 's/#\(elasticsearch.password*\)/\1/I' kibana.yml
 
 # This gathers the xpack encryption keys and writes them to the kibana.yml file
