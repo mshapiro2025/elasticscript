@@ -4,15 +4,15 @@
 
 ### Description
 
-This is a set of four scripts for setting up a basic Elastic stack.
+This is a set of five scripts for setting up a basic Elastic stack.
 
-The stack contains Elasticsearch, Kibana, Winlogbeat with Sysmon, and Filebeat with Syslog. 
+The stack contains Elasticsearch, Kibana, Winlogbeat with Sysmon, Filebeat with Syslog, and a standalone Elastic Agent for Windows.
 
 Elasticsearch can be set up and configured on the same server or different servers.
 
 The Elasticsearch, Kibana, and Filebeat scripts are bash scripts.
 
-The Winlogbeat script is a Powershell script.
+The Winlogbeat and Elastic Agent scripts are Powershell scripts.
 
 ### Details and Requirements
 
