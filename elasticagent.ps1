@@ -8,6 +8,8 @@ Expand-Archive elastic-agent.zip "C:/Program Files"
 cd "C:/Program Files/elastic-agent"
 .\elastic-agent.exe install
 
+Start-Sleep -s 600
+
 # Now, copy the configuration from Kibana to elastic-agent.yml
 
 # Enabling and starting Elastic Agent
