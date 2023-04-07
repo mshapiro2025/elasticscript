@@ -41,3 +41,5 @@ key2=$(/usr/share/kibana/bin/kibana-encryption-keys generate | grep xpack.report
 echo $key2 >> kibana.yml
 key3=$(/usr/share/kibana/bin/kibana-encryption-keys generate | grep xpack.security.encryptionKey:)
 echo $key3 >> kibana.yml
+
+systemctl restart kibana
