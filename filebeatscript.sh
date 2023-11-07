@@ -29,9 +29,9 @@ sed -i 's/#\(protocol: "https"\)/\1/I' filebeat.yml
 sed -i 's/#\(host: "localhost:5601"\)/\1/I' filebeat.yml
 sed -i "s|host: \"localhost:5601\"|host: \"http:\/\/${ipaddress1}:5601\"|I" filebeat.yml
 sed -i 's/#\(username:*\)/\1/I' filebeat.yml 
-sed -i 's/username: "elastic"/username: "$username"/I' filebeat.yml
+sed -i "s/username: \"elastic\"/username: \"$username\"/I" filebeat.yml
 sed -i 's/#\(password:*\)/\1/I' filebeat.yml 
-sed -i 's/password: "changeme"/password: "$password"/I' filebeat.yml
+sed -i "s/password: \"changeme\"/password: \"$password\"/I" filebeat.yml
 sed -i '187i\  ssl.verification_mode: none' filebeat.yml
 
 # This enables and starts filebeat
