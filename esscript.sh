@@ -26,10 +26,10 @@ sed -i "s/#network.host: 192.168.0.1/network.host: $ipaddress/I" elasticsearch.y
 
 cd ~
 /usr/share/elasticsearch/bin/elasticsearch-users useradd $esuser -p $espass
-/usr/share/elasticsearch/bin/elasticsearch-users roles admin -a superuser
+/usr/share/elasticsearch/bin/elasticsearch-users roles admin -a $esuser
 
 /usr/share/elasticsearch/bin/elasticsearch-users useradd $kbuser -p $kbpass
-/usr/share/elasticsearch/bin/elasticsearch-users roles kibanauser -a superuser
+/usr/share/elasticsearch/bin/elasticsearch-users roles kibanauser -a $superuser
 /usr/share/elasticsearch/bin/elasticsearch-users roles kibanauser -a kibana_system
 
 systemctl restart elasticsearch
